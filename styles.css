@@ -1,0 +1,433 @@
+:root {
+  color-scheme: dark;
+  --ink: #f5f0e7;
+  --muted: #9da3ad;
+  --muted-dark: #707886;
+  --line: #2a3241;
+  --panel: #171f2d;
+  --background: #111827;
+  --accent: #e9a365;
+  --mono: "DM Mono", Consolas, monospace;
+  --sans: "DM Sans", "Segoe UI", sans-serif;
+  --serif: "Playfair Display", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 82% 2%, rgb(48 70 95 / 19%), transparent 34rem),
+    var(--background);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-shell {
+  width: min(1380px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+.masthead {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-decoration: none;
+}
+
+.wordmark-mark {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  color: var(--accent);
+  font-family: var(--serif);
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
+.wordmark-divider {
+  padding: 0 3px;
+  color: var(--muted-dark);
+}
+
+.issue-label,
+.eyebrow,
+.chart-kicker,
+.unit-label,
+.chart-footer,
+.page-footer,
+.metric-label {
+  font-family: var(--mono);
+}
+
+.issue-label {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.issue-label span {
+  padding: 0 7px;
+  color: var(--accent);
+}
+
+.intro {
+  max-width: 700px;
+  padding: 74px 0 45px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow-rule {
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(52px, 7.2vw, 88px);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 0.99;
+}
+
+h1 em {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.mobile-break {
+  display: none;
+}
+
+.description {
+  max-width: 540px;
+  margin: 22px 0 28px;
+  color: #b6bbc3;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.metric-row {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-value {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 16px;
+}
+
+.metric-label {
+  color: var(--muted-dark);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.metric-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--line);
+}
+
+.chart-card {
+  overflow: hidden;
+  border: 1px solid #2a3444;
+  border-radius: 5px;
+  background: linear-gradient(145deg, rgb(29 40 56 / 82%), rgb(20 29 43 / 94%));
+  box-shadow: 0 22px 70px rgb(0 0 0 / 16%);
+}
+
+.chart-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  padding: 25px 28px 18px;
+}
+
+.chart-kicker {
+  margin: 0 0 8px;
+  color: var(--muted-dark);
+  font-size: 9px;
+  letter-spacing: 0.13em;
+}
+
+.chart-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.unit-label {
+  margin: 0 0 2px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.unit-label span {
+  padding: 0 4px;
+  color: var(--accent);
+}
+
+.chart-scroll {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-color: #465064 #1b2534;
+  scrollbar-width: thin;
+}
+
+#heatmap {
+  display: block;
+  width: 100%;
+  min-width: 990px;
+  height: auto;
+}
+
+#heatmap .axis-line,
+#heatmap .tick-mark {
+  stroke: #566070;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+#heatmap .tick text {
+  fill: #a7afbb;
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+#heatmap .y-axis .tick text {
+  fill: #c3c6cc;
+  font-family: var(--sans);
+  font-size: 11px;
+}
+
+#heatmap .cell {
+  stroke: #172131;
+  stroke-width: 0.45px;
+  shape-rendering: crispEdges;
+  transition: filter 120ms ease, stroke-width 120ms ease;
+}
+
+#heatmap .cell:hover,
+#heatmap .cell:focus {
+  filter: brightness(1.3);
+  stroke: #fff3dc;
+  stroke-width: 1.5px;
+  outline: none;
+}
+
+.chart-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 28px 14px;
+  border-top: 1px solid rgb(255 255 255 / 5%);
+  color: var(--muted-dark);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.scroll-hint {
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.scroll-hint span {
+  padding-left: 5px;
+  color: var(--accent);
+}
+
+.legend-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 29px 4px 27px;
+}
+
+.legend-copy p:last-child {
+  margin: 0;
+  color: #aeb4be;
+  font-size: 12px;
+}
+
+#legend {
+  display: block;
+  width: min(410px, 47%);
+  height: 52px;
+  overflow: visible;
+}
+
+#legend text {
+  fill: #929aa7;
+  font-family: var(--mono);
+  font-size: 9px;
+}
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted-dark);
+  font-size: 9px;
+  letter-spacing: 0.02em;
+}
+
+.page-footer span:last-child span {
+  padding-left: 4px;
+  color: var(--accent);
+}
+
+#tooltip {
+  position: fixed;
+  z-index: 5;
+  min-width: 160px;
+  padding: 12px 14px;
+  border: 1px solid #485468;
+  border-radius: 4px;
+  background: #101724;
+  box-shadow: 0 10px 28px rgb(0 0 0 / 30%);
+  color: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(12px, 12px);
+  transition: opacity 100ms ease;
+}
+
+#tooltip.visible {
+  opacity: 1;
+}
+
+.tooltip-date {
+  display: block;
+  margin-bottom: 5px;
+  color: #aab2bf;
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.tooltip-temperature {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 14px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 700px) {
+  .page-shell {
+    width: calc(100% - 36px);
+  }
+
+  .masthead {
+    min-height: 65px;
+  }
+
+  .issue-label {
+    font-size: 8px;
+  }
+
+  .intro {
+    padding: 56px 0 35px;
+  }
+
+  .mobile-break {
+    display: initial;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .metric-row {
+    gap: 12px;
+  }
+
+  .metric-value {
+    font-size: 13px;
+  }
+
+  .metric-label {
+    font-size: 8px;
+  }
+
+  .chart-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 17px 15px;
+  }
+
+  .chart-footer {
+    padding-inline: 17px;
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+
+  .legend-section {
+    align-items: start;
+    flex-direction: column;
+    gap: 16px;
+    padding-inline: 2px;
+  }
+
+  #legend {
+    width: min(410px, 100%);
+  }
+
+  .page-footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

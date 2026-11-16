@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111827">
+    <title>Global Temperature — A warming world, in 263 years</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/chart.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="masthead">
+        <a class="wordmark" href="/" aria-label="Fieldnotes home">
+          <span class="wordmark-mark" aria-hidden="true">F</span>
+          <span>FIELDNOTES <span class="wordmark-divider">/</span> CLIMATE</span>
+        </a>
+        <span class="issue-label">DATA STORY&nbsp; 01 <span aria-hidden="true">•</span> GLOBAL SERIES</span>
+      </header>
+
+      <section class="intro" aria-labelledby="title">
+        <p class="eyebrow"><span class="eyebrow-rule"></span> A changing baseline</p>
+        <h1 id="title">A warming<br class="mobile-break"> world, <em>in color.</em></h1>
+        <p id="description" class="description">
+          Monthly global land-ocean temperature anomalies, measured against the
+          20th-century average. Each tile is one month; the color traces the
+          difference from the long-term baseline.
+        </p>
+        <div class="metric-row" aria-label="Dataset summary">
+          <div class="metric"><span class="metric-value">263</span><span class="metric-label">years observed</span></div>
+          <span class="metric-divider" aria-hidden="true"></span>
+          <div class="metric"><span class="metric-value">3,153</span><span class="metric-label">monthly readings</span></div>
+          <span class="metric-divider" aria-hidden="true"></span>
+          <div class="metric"><span class="metric-value">1753—2015</span><span class="metric-label">record span</span></div>
+        </div>
+      </section>
+
+      <section class="chart-card" aria-label="Global temperature heat map">
+        <div class="chart-heading">
+          <div>
+            <p class="chart-kicker">GLOBAL LAND-OCEAN TEMPERATURE</p>
+            <h2>Monthly anomaly by year</h2>
+          </div>
+          <p class="unit-label">Degrees Celsius <span aria-hidden="true">·</span> relative to baseline</p>
+        </div>
+        <div class="chart-scroll">
+          <svg id="heatmap" role="img" aria-labelledby="title description"></svg>
+        </div>
+        <div class="chart-footer">
+          <span>MONTH</span>
+          <span class="scroll-hint">Scroll to explore the full timeline <span aria-hidden="true">↔</span></span>
+          <span>YEAR</span>
+        </div>
+      </section>
+
+      <section class="legend-section" aria-label="Temperature legend">
+        <div class="legend-copy">
+          <p class="chart-kicker">HOW TO READ THE COLORS</p>
+          <p>Cooler-than-average months move toward blue; warmer months move toward ember.</p>
+        </div>
+        <svg id="legend" role="img" aria-label="Temperature color scale"></svg>
+      </section>
+
+      <footer class="page-footer">
+        <span>Data: Berkeley Earth / freeCodeCamp Project Reference Data</span>
+        <span>Explore a long view of a changing climate <span aria-hidden="true">↗</span></span>
+      </footer>
+    </main>
+    <div id="tooltip" role="status" aria-live="polite"></div>
+    <p id="chart-status" class="sr-only" role="status" aria-live="polite">Loading temperature data…</p>
+  </body>
+</html>
